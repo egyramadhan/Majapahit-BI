@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="styles/framework.css"><link rel="stylesheet" type="text/css" href="styles/fonts/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="styles/custom.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
@@ -68,10 +69,8 @@
 				</div>
 				<div class="one-half last-column">
 					<div class="select-box select-box-2 half-bottom">
-						<select>
-							<option value="volvo">Nilai</option>
-							<option value="saab">Jumlah</option>
-						</select>
+						{{--  --}}
+						<input type="text" name="datefilter" value=""/>
 					</div>
 				</div>
 				<div class="clear"></div>
@@ -93,7 +92,7 @@
 				</div>
 			</div>
 
-			<canvas class="chart disabled" id="vertical-chart"/></canvas>
+			<canvas class="chart enable" id="vertical-chart"/></canvas>
 			<canvas class="chart disabled"  id="horizontal-chart"/></canvas>
 			<canvas class="chart disabled" id="pie-chart"/></canvas>
 			<canvas class="chart disabled" id="doughnut-chart"/></canvas>
@@ -199,6 +198,30 @@
 	$(document).ready(function() {
 			$('.datatable-sales-majapait').DataTable();
 	} );
+	$(function() {
+	
+	$('input[name="datefilter"]').daterangepicker({
+		autoUpdateInput: false,
+		locale: {
+			cancelLabel: 'Clear'
+		}
+	});
+  
+	$('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+		$(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+	});
+  
+	$('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+		$(this).val('');
+	});
+  
+  });
 </script>
-
+<script type="text/javascript">
+	
+	</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </body>
+</html>

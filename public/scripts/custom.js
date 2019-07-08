@@ -649,8 +649,136 @@ $(document).ready(function(){
 		countdown('01/19/2030 03:14:07 AM');	
 
 		//Charts
-		
+		$(document).ready(function() {
+			if($('.chart').length > 0){
+			var loadJS = function(url, implementationCode, location){
+				var scriptTag = document.createElement('script');
+				scriptTag.src = url;
+				scriptTag.onload = implementationCode;
+				scriptTag.onreadystatechange = implementationCode;
+				location.appendChild(scriptTag);
+			};
+			var call_charts_to_page = function(){
+				new Chart(document.getElementById("pie-chart"), {
+					type: 'pie',
+					data: {
+					  labels: ["tes"],
+					  datasets: [{
+						backgroundColor: ["#4FC1E9", "#FC6E51", "#ED5565", "#A0D468","#293462",
+										"#216583","#f76262","#f76262","#fff1c1","#ed3833","#f9ed69",
+										"#f08a5d","#b83b5e","#6a2c70","#30e3ca","#ffc8c8","#ff9a00","#ff165d",
+										"#1fab89","#62d2a2"],
+						borderColor:"rgba(255,255,255,0.2)",
+						data: ["10000"]
+					  }]
+					},
+					options: {
+						legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+						tooltips:{enabled:true}, animation:{duration:1500},
+					},
+				});		
 
+				// new Chart(document.getElementById("doughnut-chart"), {
+				// 	type: 'doughnut',
+				// 	data: {
+				// 	  labels: ["Apple Inc.", "Samsung", "Google", "One Plus", "Huawei"],
+				// 	  datasets: [{
+				// 		backgroundColor: ["#CCD1D9", "#5D9CEC","#FC6E51", "#434A54", "#4FC1E9"],
+				// 		borderColor:"rgba(255,255,255,0.2)",
+				// 		data: [5500,4000,2000,3000,1000]
+				// 	  }]
+				// 	},
+				// 	options: {
+				// 		legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+				// 		tooltips:{enabled:true}, animation:{duration:1500}, layout:{ padding: {bottom: 30}}
+				// 	}
+				// });		
+
+				new Chart(document.getElementById("polar-chart"), {
+					type: 'polarArea',
+					data: {
+					  labels: ["tes"],
+					  datasets: [{
+						backgroundColor: ["#CCD1D9", "#5D9CEC","#FC6E51"],
+						borderColor:"rgba(255,255,255,0.2)",
+						data: ['10000']
+					  }]
+					},
+					options: {
+						legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+						tooltips:{enabled:true}, animation:{duration:1500}, layout:{ padding: {bottom: 30}}
+					}
+				});			
+
+				new Chart(document.getElementById("vertical-chart"), {
+					type: 'bar',
+					data: {
+					  labels: ["2010", "2015", "2020", "2025"],
+					  datasets: [
+						{
+						  label: "iOS",
+						  backgroundColor: "#A0D468",
+						  data: [900,1000,1200,1400]
+						}, {
+						  label: "Android",
+						  backgroundColor: "#4A89DC",
+						  data: [890,950,1100,1300]
+						}
+					  ]
+					},
+					options: {
+						legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+						title: {display: false}
+					}
+				});	
+
+
+				new Chart(document.getElementById("horizontal-chart"), {
+					type: 'horizontalBar',
+					data: {
+					  labels: ["2010", "2013", "2016", "2020"],
+					  datasets: [
+						{
+						  label: "Mobile",
+						  backgroundColor: "#BF263C",
+						  data: [330,400,580,590]
+						}, {
+						  label: "Responsive",
+						  backgroundColor: "#EC87C0",
+						  data: [390,450,550,570]
+						}
+					  ]
+					},
+					options: {
+						legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+						title: {display: false}
+					}
+				});	
+
+				// new Chart(document.getElementById("line-chart"), {
+				//   type: 'line',
+				//   data: {
+				// 	labels: [2000,2005,2010,2015,2020],
+				// 	datasets: [{ 
+				// 		data: [500,400,300,200,300],
+				// 		label: "Produk 1",
+				// 		borderColor: "#D8334A"
+				// 	  }, { 
+				// 		data: [0,100,300,400,500],
+				// 		label: "Produk 2",
+				// 		borderColor: "#4A89DC"
+				// 	  }
+				// 	]
+				//   },
+				//   options: {
+				// 	legend: {display: true, position:'bottom', labels:{fontSize:13, padding:15,boxWidth:12},},
+				// 	title: {display: false}
+				//   }
+				// });
+			}
+			loadJS('scripts/charts.js', call_charts_to_page, document.body);
+		}
+		} );
 		//Cookie Box
 		function createCookie(e,t,n){if(n){var o=new Date;o.setTime(o.getTime()+48*n*60*60*1e3);var r="; expires="+o.toGMTString()}else var r="";document.cookie=e+"="+t+r+"; path=/"}function readCookie(e){for(var t=e+"=",n=document.cookie.split(";"),o=0;o<n.length;o++){for(var r=n[o];" "==r.charAt(0);)r=r.substring(1,r.length);if(0==r.indexOf(t))return r.substring(t.length,r.length)}return null}function eraseCookie(e){createCookie(e,"",-1)}
 
