@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/setting', 'SettingController@index')->name('setting');
 Route::get('/sales', 'SalesController@index')->name('sales');
 Route::get('/sync', 'SalesController@sycinvoice')->name('sync');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

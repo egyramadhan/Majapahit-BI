@@ -716,11 +716,11 @@ $(document).ready(function(){
 					  labels: ["2010", "2015", "2020", "2025"],
 					  datasets: [
 						{
-						  label: "iOS",
+						  label: "Lalapan Domba Bakar Jumbo",
 						  backgroundColor: "#A0D468",
 						  data: [900,1000,1200,1400]
 						}, {
-						  label: "Android",
+						  label: "Lalapan Domba Goreng",
 						  backgroundColor: "#4A89DC",
 						  data: [890,950,1100,1300]
 						}
